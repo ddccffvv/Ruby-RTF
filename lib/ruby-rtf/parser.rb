@@ -192,7 +192,9 @@ module RubyRTF
       when :sa then add_section!(:space_after => RubyRTF.twips_to_points(val))
       when :cf then add_section!(:foreground_colour => @doc.colour_table[val])
       when :cb then add_section!(:background_colour => @doc.colour_table[val])
-      when :hex then current_section[:text] << val
+      when :hex then 
+        puts "skipping hex"
+        #current_section[:text] << val
       when :uc then @skip_byte = val.to_i
       when :u then
         if @skip_byte && @skip_byte == 0
